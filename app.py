@@ -17,16 +17,13 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    /* ========== BASE ========== */
     .stApp { background: #080c18; }
     .main { 
         background: #080c18; 
         padding: 0.6rem 0.8rem 2rem !important; 
-        max-width: 100%;
     }
     header[data-testid="stHeader"] { display: none; }
     
-    /* ========== SLIDER DE DESTINOS ========== */
     .destino-slider {
         background: rgba(255, 255, 255, 0.03);
         backdrop-filter: blur(12px);
@@ -40,7 +37,6 @@ st.markdown("""
         flex-wrap: nowrap;
         overflow-x: auto;
         scrollbar-width: none;
-        min-height: 44px;
     }
     .destino-slider::-webkit-scrollbar { display: none; }
     
@@ -58,7 +54,6 @@ st.markdown("""
         white-space: nowrap !important;
         font-family: inherit !important;
         min-height: 30px;
-        line-height: 1.2;
     }
     .destino-btn:hover {
         color: #fff !important;
@@ -80,7 +75,6 @@ st.markdown("""
         color: #ff9100;
     }
 
-    /* ========== SUGERENCIA ========== */
     .sugerencia-box {
         background: rgba(255, 145, 0, 0.04);
         border: 1px solid rgba(255, 145, 0, 0.06);
@@ -92,7 +86,6 @@ st.markdown("""
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 4px;
-        font-size: 12px;
     }
     .sugerencia-box .label {
         color: rgba(255, 255, 255, 0.25);
@@ -107,7 +100,6 @@ st.markdown("""
     }
     .sugerencia-box .texto strong { color: #ffb74d; }
 
-    /* ========== FORMULARIO ========== */
     .form-moderno {
         background: rgba(255, 255, 255, 0.02);
         backdrop-filter: blur(10px);
@@ -145,17 +137,7 @@ st.markdown("""
         font-weight: 500 !important;
         margin-bottom: 2px !important;
     }
-    .form-moderno .stSelectbox div[data-baseweb="select"] {
-        min-height: 36px !important;
-    }
-    .form-moderno .stDateInput div[data-baseweb="input"] {
-        min-height: 36px !important;
-    }
-    .form-moderno .stNumberInput div[data-baseweb="input"] {
-        min-height: 36px !important;
-    }
 
-    /* ========== BOTÓN ========== */
     .btn-cotizar {
         background: linear-gradient(135deg, #ff9100, #f57c00, #ef6c00) !important;
         border: none !important;
@@ -173,9 +155,7 @@ st.markdown("""
         transform: translateY(-2px) !important;
         box-shadow: 0 6px 28px rgba(255, 145, 0, 0.3) !important;
     }
-    .btn-cotizar:active { transform: scale(0.97) !important; }
 
-    /* ========== BADGES ========== */
     .badge-moderno {
         display: inline-block;
         background: rgba(255, 255, 255, 0.03);
@@ -220,7 +200,6 @@ st.markdown("""
         border: 1px solid rgba(255, 183, 77, 0.05);
     }
 
-    /* ========== TARJETA DE RESULTADOS ========== */
     .result-card-moderno {
         background: rgba(255, 255, 255, 0.02);
         backdrop-filter: blur(8px);
@@ -254,7 +233,6 @@ st.markdown("""
         border: 1px solid rgba(255, 255, 255, 0.02);
     }
 
-    /* ========== DESGLOSE ========== */
     .desglose-box {
         background: rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.03);
@@ -302,7 +280,6 @@ st.markdown("""
         margin-top: 4px;
     }
 
-    /* ========== DIVISORES ========== */
     .divider-lotus {
         display: flex;
         align-items: center;
@@ -319,7 +296,6 @@ st.markdown("""
     }
     .divider-lotus .icono-divider { color: #ff9100; font-size: 8px; }
 
-    /* ========== TÍTULOS ========== */
     h1 {
         color: #fff !important;
         font-weight: 700 !important;
@@ -345,7 +321,6 @@ st.markdown("""
         margin-bottom: 8px !important;
     }
 
-    /* ========== MÉTRICAS ========== */
     .stMetric {
         background: rgba(255, 255, 255, 0.02);
         border-radius: 12px;
@@ -364,7 +339,6 @@ st.markdown("""
         font-size: 18px !important;
     }
 
-    /* ========== FOOTER ========== */
     .footer-2026 {
         margin-top: 16px;
         padding-top: 12px;
@@ -375,7 +349,6 @@ st.markdown("""
         letter-spacing: 1px;
     }
 
-    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
         .main { padding: 0.4rem 0.5rem 1.5rem !important; }
         .form-moderno { padding: 10px 10px; border-radius: 16px; }
@@ -386,21 +359,12 @@ st.markdown("""
         h1 { font-size: 1.2rem !important; }
         .btn-cotizar { font-size: 14px !important; padding: 10px 16px !important; }
         .stMetric .stMetricValue { font-size: 16px !important; }
-        .stMetric { padding: 4px 2px; }
-    }
-    
-    @media (max-width: 400px) {
-        .destino-btn { font-size: 9px !important; padding: 3px 8px !important; }
-        .form-moderno { padding: 8px 8px; }
-        .badge-moderno { font-size: 8px; padding: 1px 8px; }
-        h1 { font-size: 1rem !important; }
-        .sub-header { font-size: 9px; }
     }
 </style>
 """, unsafe_allow_html=True)
 
 # ======================================================
-# HEADER COMPACTO
+# HEADER
 # ======================================================
 
 col1, col2 = st.columns([1, 5])
@@ -411,18 +375,18 @@ with col2:
     st.markdown('<p class="sub-header">✨ Tarifas al instante · Lotus 360</p>', unsafe_allow_html=True)
 
 # ======================================================
-# SLIDER DE DESTINOS (MÁS COMPACTO)
+# SLIDER DE DESTINOS
 # ======================================================
 
 destinos = [
-    {"nombre": "Margarita", "emoji": "🏖️", "badge": "Pop"},
+    {"nombre": "Margarita", "emoji": "🏖️", "badge": "Popular"},
     {"nombre": "Morrocoy", "emoji": "🐠", "badge": "Playas"},
-    {"nombre": "Los Roques", "emoji": "🏝️", "badge": "Excl"},
-    {"nombre": "Mérida", "emoji": "🚡", "badge": "Mont"},
-    {"nombre": "Canaima", "emoji": "💧", "badge": "Avent"},
+    {"nombre": "Los Roques", "emoji": "🏝️", "badge": "Exclusivo"},
+    {"nombre": "Mérida", "emoji": "🚡", "badge": "Montaña"},
+    {"nombre": "Canaima", "emoji": "💧", "badge": "Aventura"},
     {"nombre": "Colonia Tovar", "emoji": "🏘️", "badge": "Pueblo"},
     {"nombre": "Costa Caribe", "emoji": "🌊", "badge": "Hotel"},
-    {"nombre": "Los Llanos", "emoji": "🌿", "badge": "Natur"},
+    {"nombre": "Los Llanos", "emoji": "🌿", "badge": "Naturaleza"},
 ]
 
 if "destino_seleccionado" not in st.session_state:
@@ -432,6 +396,7 @@ st.markdown('<div class="destino-slider">', unsafe_allow_html=True)
 cols = st.columns(len(destinos))
 for i, d in enumerate(destinos):
     with cols[i]:
+        activo = "activo" if d["nombre"] == st.session_state.destino_seleccionado else ""
         if st.button(
             f"{d['emoji']} {d['nombre']}",
             key=f"btn_{d['nombre']}",
@@ -451,14 +416,14 @@ st.markdown('</div>', unsafe_allow_html=True)
 # ======================================================
 
 sugerencias = {
-    "Margarita": {"noches": 4, "adultos": 2, "ninos": 0, "texto": "🌴 4 noches · 2 adultos · Playas"},
-    "Morrocoy": {"noches": 2, "adultos": 2, "ninos": 2, "texto": "🐠 2 noches · 2+2 niños · Familias"},
-    "Los Roques": {"noches": 3, "adultos": 2, "ninos": 0, "texto": "🏝️ 3 noches · 2 adultos · Romántico"},
-    "Mérida": {"noches": 3, "adultos": 2, "ninos": 1, "texto": "🚡 3 noches · 2+1 · Montaña"},
-    "Canaima": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "💧 2 noches · 2 adultos · Aventura"},
-    "Colonia Tovar": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "🏘️ 2 noches · 2 adultos · Fresas"},
-    "Costa Caribe": {"noches": 3, "adultos": 2, "ninos": 2, "texto": "🌊 3 noches · 2+2 · Todo Incluido"},
-    "Los Llanos": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "🌿 2 noches · 2 adultos · Naturaleza"},
+    "Margarita": {"noches": 4, "adultos": 2, "ninos": 0, "texto": "🌴 4 noches · 2 adultos · Playas y duty free"},
+    "Morrocoy": {"noches": 2, "adultos": 2, "ninos": 2, "texto": "🐠 2 noches · 2 adultos + 2 niños · Ideal para familias"},
+    "Los Roques": {"noches": 3, "adultos": 2, "ninos": 0, "texto": "🏝️ 3 noches · 2 adultos · Escapada romántica"},
+    "Mérida": {"noches": 3, "adultos": 2, "ninos": 1, "texto": "🚡 3 noches · 2 adultos + 1 niño · Aventura en los Andes"},
+    "Canaima": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "💧 2 noches · 2 adultos · Expedición al Salto Ángel"},
+    "Colonia Tovar": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "🏘️ 2 noches · 2 adultos · Clima primaveral y fresas"},
+    "Costa Caribe": {"noches": 3, "adultos": 2, "ninos": 2, "texto": "🌊 3 noches · 2 adultos + 2 niños · Todo incluido"},
+    "Los Llanos": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "🌿 2 noches · 2 adultos · Naturaleza y fauna"},
 }
 
 sug = sugerencias.get(st.session_state.destino_seleccionado, {"noches": 3, "adultos": 2, "ninos": 0, "texto": "✨ Explora este destino"})
@@ -466,14 +431,14 @@ sug = sugerencias.get(st.session_state.destino_seleccionado, {"noches": 3, "adul
 st.markdown(f"""
 <div class="sugerencia-box">
     <div>
-        <span class="label">💡 Sugerencia</span>
+        <span class="label">💡 Sugerencia para {st.session_state.destino_seleccionado}</span>
         <span class="texto">{sug['texto']}</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ======================================================
-# FORMULARIO COMPACTO
+# FORMULARIO
 # ======================================================
 
 with st.container():
@@ -483,6 +448,9 @@ with st.container():
         col1, col2 = st.columns(2)
         
         with col1:
+            # ======================================================
+            # SELECTOR DE HOTELES EN MARGARITA
+            # ======================================================
             hoteles_margarita = [
                 "🏨 Hotel Costa Caribe",
                 "🏨 LD Palm Beach",
@@ -490,44 +458,49 @@ with st.container():
                 "🏨 Margarita Village",
                 "🏨 Hotel Sunsol",
                 "🏨 Hotel Hesperia Isla de Margarita",
-                "✏️ Otro"
+                "✏️ Otro (escribir nombre)"
             ]
             
             if st.session_state.destino_seleccionado == "Margarita":
-                st.markdown('<p style="color:rgba(255,255,255,0.25);font-size:10px;font-weight:500;margin-bottom:2px;">🏨 Hotel</p>', unsafe_allow_html=True)
+                st.markdown('<p style="color:rgba(255,255,255,0.3);font-size:10px;font-weight:500;margin-bottom:2px;">🏨 Selecciona el hotel</p>', unsafe_allow_html=True)
                 hotel_seleccionado = st.selectbox(
-                    "Hotel",
+                    "Hotel en Margarita",
                     options=hoteles_margarita,
                     index=0,
                     label_visibility="collapsed"
                 )
                 
-                if hotel_seleccionado == "✏️ Otro":
+                if hotel_seleccionado == "✏️ Otro (escribir nombre)":
                     hotel_input = st.text_input(
-                        "Otro hotel",
-                        placeholder="Escribe el nombre",
+                        "✏️ Escribe el nombre del hotel",
+                        placeholder="Ej: Hotel Miramar...",
                         label_visibility="collapsed"
                     )
                     hotel_final = hotel_input if hotel_input else ""
                 else:
                     hotel_final = hotel_seleccionado.replace("🏨 ", "")
+                
+                if hotel_final:
+                    st.caption(f"📍 Hotel seleccionado: **{hotel_final}**")
+                else:
+                    st.caption("📍 Selecciona un hotel")
             else:
                 hotel_final = st.text_input(
-                    "📍 Hospedaje",
+                    "📍 Lugar de Hospedaje",
                     value=st.session_state.destino_seleccionado,
-                    placeholder="Hotel o destino",
+                    placeholder="Ej: Margarita, Costa Caribe...",
                     label_visibility="collapsed"
                 )
             
             fecha_entrada = st.date_input(
-                "📅 Llegada",
+                "📅 Fecha de llegada",
                 value=datetime.now() + timedelta(days=7),
                 label_visibility="collapsed"
             )
         
         with col2:
             noches = st.number_input(
-                "🌙 Noches",
+                "🌙 Noches de estancia",
                 min_value=1,
                 max_value=30,
                 value=sug['noches'],
@@ -548,15 +521,15 @@ with st.container():
                 label_visibility="collapsed"
             )
             regimen = st.selectbox(
-                "🍽️ Régimen",
+                "🍽️ Régimen alimenticio",
                 options=["Todos incluidos", "Media pensión", "Pensión completa", "Solo alojamiento"],
                 label_visibility="collapsed"
             )
         
-        # Comando de voz compacto
+        st.caption("🎤 O usa el comando de voz")
         comando_voz = st.text_input(
-            "🎤 Voz",
-            placeholder='Ej: "Margarita, 4 adultos, 2 niños, 3 noches"',
+            "🎙️ Comando de voz",
+            placeholder='Ej: "Quiero Margarita, 4 adultos, 2 niños, 3 noches"',
             label_visibility="collapsed"
         )
         
@@ -609,9 +582,9 @@ if buscar:
         st.info(f"🎤 Procesado: **{destino_final}**, {adultos} adultos, {ninos} niños, {noches} noches")
 
     if not destino_final:
-        st.warning("⚠️ Selecciona o escribe un hospedaje")
+        st.warning("⚠️ Selecciona o escribe un lugar de hospedaje")
     else:
-        with st.spinner("🔍 Buscando..."):
+        with st.spinner("🔍 Buscando tarifas..."):
             try:
                 conn = sqlite3.connect("pdf_busqueda.db")
                 cursor = conn.cursor()
@@ -654,23 +627,22 @@ if buscar:
                             resultados_validos.append(row)
                     
                     if not resultados_validos:
-                        st.warning("😕 Sin tarifas disponibles para estos datos")
+                        st.warning("😕 No hay tarifas disponibles para estos datos")
                         st.info("💡 Prueba con otro hotel o ajusta las fechas")
                     else:
-                        st.markdown(f'<h3>✅ {len(resultados_validos)} ofertas</h3>', unsafe_allow_html=True)
+                        st.markdown(f'<h3>✅ {len(resultados_validos)} ofertas encontradas</h3>', unsafe_allow_html=True)
                         
-                        # Badges compactos
                         col_b1, col_b2, col_b3, col_b4, col_b5 = st.columns(5)
                         with col_b1:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-hotel"></i>{destino_final[:12]}</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-hotel"></i> {destino_final[:12]}</span>', unsafe_allow_html=True)
                         with col_b2:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-user"></i>{adultos}</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-user"></i> {adultos} adultos</span>', unsafe_allow_html=True)
                         with col_b3:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-child"></i>{ninos}</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-child"></i> {ninos} niños</span>', unsafe_allow_html=True)
                         with col_b4:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-moon"></i>{noches}</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-moon"></i> {noches} noches</span>', unsafe_allow_html=True)
                         with col_b5:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-utensils"></i>{"".join(regimen[:2])}</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-utensils"></i> {regimen}</span>', unsafe_allow_html=True)
                         
                         for row in resultados_validos:
                             hotel, pagina, regimen_bd, vigencia_ini, vigencia_fin, sgl, dbl, tpl, cdp, qpl, chd, inf, promociones_json, condiciones_json = row
@@ -693,7 +665,7 @@ if buscar:
                                 precio_mostrado = f"${precio_base:.2f} USD"
                                 subtotal_texto = f"${costo_por_noche:.2f} USD"
                             else:
-                                total_texto = "N/A"
+                                total_texto = "Calcular manualmente"
                                 precio_mostrado = "N/A"
                                 subtotal_texto = "N/A"
                             
@@ -702,20 +674,20 @@ if buscar:
                                 with col_h1:
                                     st.markdown(f"**🏨 {hotel}**")
                                 with col_h2:
-                                    st.markdown(f'<span class="pagina-badge">📄 {pagina}</span>', unsafe_allow_html=True)
+                                    st.markdown(f'<span class="pagina-badge">📄 Página {pagina}</span>', unsafe_allow_html=True)
                                 
-                                # Badges de info compactos
                                 badge_html = ""
                                 if vigencia_ini:
-                                    badge_html += f'<span class="vigencia-badge">📅 {vigencia_ini[:5]}→{vigencia_fin[:5] if vigencia_fin else ""}</span>'
+                                    badge_html += f'<span class="vigencia-badge">📅 {vigencia_ini[:5]} → {vigencia_fin[:5] if vigencia_fin else ""}</span>'
                                 if regimen_bd:
-                                    badge_html += f'<span class="temporada-badge">🍽️ {regimen_bd[:8]}</span>'
-                                for p in promociones[:1]:
-                                    badge_html += f'<span class="promocion-badge">🎁 {p[:12]}</span>'
+                                    badge_html += f'<span class="temporada-badge">🍽️ {regimen_bd}</span>'
+                                for p in promociones[:2]:
+                                    badge_html += f'<span class="promocion-badge">🎁 {p}</span>'
+                                for c in condiciones[:1]:
+                                    badge_html += f'<span class="temporada-badge">📌 {c}</span>'
                                 if badge_html:
                                     st.markdown(f'<div style="display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 6px;">{badge_html}</div>', unsafe_allow_html=True)
                                 
-                                # Precios por habitación
                                 precios_habitacion = {}
                                 if sgl: precios_habitacion["SGL"] = sgl
                                 if dbl: precios_habitacion["DBL"] = dbl
@@ -724,45 +696,46 @@ if buscar:
                                 if qpl: precios_habitacion["QPL"] = qpl
                                 
                                 if precios_habitacion:
-                                    habitacion_text = " | ".join([f"{hab}: ${p:.0f}" for hab, p in precios_habitacion.items()])
-                                    st.caption(f"🏷️ {habitacion_text}")
-                                
-                                if tiene_ninos_gratis and ninos > 0:
-                                    st.markdown(f'<span class="promocion-badge" style="font-size:10px;">🎁 ¡Niños gratis!</span>', unsafe_allow_html=True)
+                                    habitacion_text = " | ".join([f"{hab}: ${p:.2f}" for hab, p in precios_habitacion.items()])
+                                    st.caption(f"🏷️ Precios por noche: {habitacion_text}")
                                 
                                 st.markdown(f"""
                                 <div class="desglose-box">
                                     <div class="fila">
-                                        <span class="label">💰 Por persona/noche</span>
+                                        <span class="label">💰 Precio por persona (por noche)</span>
                                         <span class="valor">{precio_mostrado}</span>
                                     </div>
                                     <div class="fila">
-                                        <span class="label">👥 Total personas</span>
-                                        <span class="valor">{total_personas} ({adultos}+{ninos})</span>
+                                        <span class="label">👥 Personas totales</span>
+                                        <span class="valor">{total_personas} <span style="color:rgba(255,255,255,0.3);font-size:11px;">({adultos} adultos + {ninos} niños)</span></span>
                                     </div>
-                                    <div class="fila" style="border-bottom:1px solid rgba(255,255,255,0.04);">
-                                        <span class="label">🌙 Noches</span>
+                                    <div class="fila">
+                                        <span class="label">🌙 Noches de estancia</span>
                                         <span class="valor">{noches}</span>
                                     </div>
-                                    <div class="fila" style="color:rgba(255,255,255,0.4);font-size:11px;">
-                                        <span class="label">Subtotal/noche</span>
+                                    <div class="fila" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                                        <span class="label">🍽️ Régimen</span>
+                                        <span class="valor">{regimen}</span>
+                                    </div>
+                                    <div class="fila" style="color:rgba(255,255,255,0.5);font-size:12px;">
+                                        <span class="label">Subtotal (por noche)</span>
                                         <span class="valor">{subtotal_texto}</span>
                                     </div>
                                     <div class="fila total">
-                                        <span class="label">💰 Total</span>
+                                        <span class="label">💰 Total del viaje</span>
                                         <span class="valor">{total_texto}</span>
                                     </div>
-                                    <div class="formula">{precio_mostrado} × {total_personas} × {noches}</div>
+                                    <div class="formula">Precio por persona × {total_personas} personas × {noches} noches</div>
                                 </div>
                                 """, unsafe_allow_html=True)
                                 
                                 st.divider()
                         
                         st.markdown("---")
-                        st.markdown("### 📊 Resumen")
+                        st.markdown("### 📊 Resumen de la cotización")
                         col1, col2, col3, col4 = st.columns(4)
                         with col1:
-                            st.metric("📍 Hotel", destino_final.title()[:15])
+                            st.metric("📍 Hospedaje", destino_final.title()[:15])
                         with col2:
                             st.metric("🌙 Noches", noches)
                         with col3:
@@ -770,14 +743,14 @@ if buscar:
                         with col4:
                             st.metric("🧒 Niños", ninos)
                         
-                        st.info("💡 Confirma tarifas con el PDF original", icon="ℹ️")
+                        st.info("💡 Revisa el PDF original para confirmar tarifas exactas.")
                 else:
-                    st.warning(f"😕 No encontré '{destino_final}'")
-                    st.info("💡 Prueba con: 'hotel', 'precio' u otro destino")
+                    st.warning(f"😕 No encontré información para '{destino_final}'")
+                    st.info("💡 Prueba con: 'hotel', 'precio', 'promoción' o el nombre de otro destino")
                     
             except Exception as e:
-                st.error(f"❌ Error: {e}")
-                st.info("💡 Ejecuta 'python extractor.py' primero")
+                st.error(f"❌ Error al buscar: {e}")
+                st.info("💡 Asegúrate de haber ejecutado el extractor primero (python extractor.py)")
 
 # ======================================================
 # FOOTER
