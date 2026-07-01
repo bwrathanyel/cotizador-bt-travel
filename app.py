@@ -12,28 +12,35 @@ st.set_page_config(
 )
 
 # ======================================================
-# CSS - DISEÑO MODERNO
+# CSS - DISEÑO COMPACTO Y OPTIMIZADO PARA MÓVIL
 # ======================================================
 
 st.markdown("""
 <style>
+    /* ========== BASE ========== */
     .stApp { background: #080c18; }
-    .main { background: #080c18; padding: 1rem 1.5rem 3rem; }
+    .main { 
+        background: #080c18; 
+        padding: 0.6rem 0.8rem 2rem !important; 
+        max-width: 100%;
+    }
     header[data-testid="stHeader"] { display: none; }
     
+    /* ========== SLIDER DE DESTINOS ========== */
     .destino-slider {
         background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(16px);
+        backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 30px;
-        padding: 12px 16px;
-        margin-bottom: 20px;
+        border-radius: 20px;
+        padding: 6px 8px;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 2px;
         flex-wrap: nowrap;
         overflow-x: auto;
         scrollbar-width: none;
+        min-height: 44px;
     }
     .destino-slider::-webkit-scrollbar { display: none; }
     
@@ -41,68 +48,73 @@ st.markdown("""
         flex: 0 0 auto;
         background: transparent !important;
         border: 1px solid transparent !important;
-        color: rgba(255, 255, 255, 0.35) !important;
-        font-size: 13px !important;
+        color: rgba(255, 255, 255, 0.3) !important;
+        font-size: 11px !important;
         font-weight: 500 !important;
-        padding: 10px 20px !important;
-        border-radius: 30px !important;
+        padding: 5px 12px !important;
+        border-radius: 20px !important;
         transition: all 0.3s ease !important;
         cursor: pointer !important;
         white-space: nowrap !important;
         font-family: inherit !important;
+        min-height: 30px;
+        line-height: 1.2;
     }
     .destino-btn:hover {
         color: #fff !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.05) !important;
     }
     .destino-btn.activo {
         color: #fff !important;
         background: rgba(255, 145, 0, 0.15) !important;
-        border-color: rgba(255, 145, 0, 0.25) !important;
+        border-color: rgba(255, 145, 0, 0.2) !important;
+        font-weight: 600;
     }
     .destino-btn .badge-destino {
-        font-size: 7px;
-        padding: 2px 10px;
-        border-radius: 12px;
-        margin-left: 8px;
+        font-size: 6px;
+        padding: 1px 6px;
+        border-radius: 8px;
+        margin-left: 4px;
         font-weight: 700;
-        background: rgba(255, 145, 0, 0.12);
+        background: rgba(255, 145, 0, 0.1);
         color: #ff9100;
     }
 
+    /* ========== SUGERENCIA ========== */
     .sugerencia-box {
-        background: linear-gradient(135deg, rgba(255, 145, 0, 0.06), rgba(255, 145, 0, 0.01));
-        border: 1px solid rgba(255, 145, 0, 0.08);
-        border-radius: 20px;
-        padding: 16px 22px;
-        margin-bottom: 20px;
+        background: rgba(255, 145, 0, 0.04);
+        border: 1px solid rgba(255, 145, 0, 0.06);
+        border-radius: 14px;
+        padding: 8px 14px;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 4px;
+        font-size: 12px;
     }
     .sugerencia-box .label {
-        color: rgba(255, 255, 255, 0.3);
-        font-size: 10px;
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 9px;
         font-weight: 600;
-        letter-spacing: 0.8px;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
     }
     .sugerencia-box .texto {
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 12px;
     }
     .sugerencia-box .texto strong { color: #ffb74d; }
 
+    /* ========== FORMULARIO ========== */
     .form-moderno {
         background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(16px);
+        backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.04);
-        border-radius: 32px;
-        padding: 32px 28px;
-        margin-bottom: 24px;
+        border-radius: 20px;
+        padding: 14px 14px;
+        margin-bottom: 14px;
     }
     .form-moderno .stTextInput input,
     .form-moderno .stNumberInput input,
@@ -110,10 +122,11 @@ st.markdown("""
     .form-moderno .stDateInput input {
         background: rgba(255, 255, 255, 0.04) !important;
         border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        border-radius: 14px !important;
+        border-radius: 10px !important;
         color: #fff !important;
-        padding: 12px 18px !important;
-        font-size: 14px !important;
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+        min-height: 36px !important;
         transition: all 0.3s ease !important;
     }
     .form-moderno .stTextInput input:focus,
@@ -121,186 +134,196 @@ st.markdown("""
     .form-moderno .stSelectbox select:focus,
     .form-moderno .stDateInput input:focus {
         border-color: rgba(255, 145, 0, 0.3) !important;
-        box-shadow: 0 0 0 4px rgba(255, 145, 0, 0.05) !important;
+        box-shadow: 0 0 0 3px rgba(255, 145, 0, 0.04) !important;
     }
-    .form-moderno .stTextInput input::placeholder { color: rgba(255, 255, 255, 0.15); }
+    .form-moderno .stTextInput input::placeholder {
+        color: rgba(255, 255, 255, 0.15);
+    }
     .form-moderno label {
-        color: rgba(255, 255, 255, 0.3) !important;
-        font-size: 11px !important;
+        color: rgba(255, 255, 255, 0.25) !important;
+        font-size: 10px !important;
         font-weight: 500 !important;
+        margin-bottom: 2px !important;
+    }
+    .form-moderno .stSelectbox div[data-baseweb="select"] {
+        min-height: 36px !important;
+    }
+    .form-moderno .stDateInput div[data-baseweb="input"] {
+        min-height: 36px !important;
+    }
+    .form-moderno .stNumberInput div[data-baseweb="input"] {
+        min-height: 36px !important;
     }
 
+    /* ========== BOTÓN ========== */
     .btn-cotizar {
         background: linear-gradient(135deg, #ff9100, #f57c00, #ef6c00) !important;
         border: none !important;
-        border-radius: 24px !important;
-        padding: 20px 32px !important;
+        border-radius: 16px !important;
+        padding: 12px 20px !important;
         font-weight: 700 !important;
-        font-size: 18px !important;
+        font-size: 15px !important;
         color: #fff !important;
-        box-shadow: 0 8px 40px rgba(255, 145, 0, 0.25) !important;
-        transition: all 0.4s ease !important;
+        box-shadow: 0 4px 20px rgba(255, 145, 0, 0.2) !important;
+        transition: all 0.3s ease !important;
         width: 100% !important;
+        min-height: 44px;
     }
     .btn-cotizar:hover {
-        transform: translateY(-4px) !important;
-        box-shadow: 0 12px 56px rgba(255, 145, 0, 0.4) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 28px rgba(255, 145, 0, 0.3) !important;
     }
-    .btn-cotizar:active { transform: scale(0.96) !important; }
+    .btn-cotizar:active { transform: scale(0.97) !important; }
 
+    /* ========== BADGES ========== */
     .badge-moderno {
         display: inline-block;
         background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-        padding: 4px 14px;
-        font-size: 10px;
-        color: rgba(255, 255, 255, 0.3);
-        margin-right: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 14px;
+        padding: 2px 10px;
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.25);
+        margin-right: 3px;
+        margin-bottom: 4px;
     }
-    .badge-moderno i { color: #ff9100; margin-right: 4px; opacity: 0.6; }
+    .badge-moderno i { color: #ff9100; margin-right: 3px; opacity: 0.5; font-size: 8px; }
 
     .promocion-badge {
         display: inline-block;
-        background: rgba(16, 185, 129, 0.12);
+        background: rgba(16, 185, 129, 0.1);
         color: #10b981;
-        border-radius: 14px;
-        padding: 3px 12px;
-        font-size: 10px;
+        border-radius: 10px;
+        padding: 2px 10px;
+        font-size: 9px;
         font-weight: 600;
-        border: 1px solid rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(16, 185, 129, 0.06);
     }
     .vigencia-badge {
         display: inline-block;
-        background: rgba(74, 158, 255, 0.08);
+        background: rgba(74, 158, 255, 0.07);
         color: #4a9eff;
-        border-radius: 14px;
-        padding: 3px 12px;
-        font-size: 10px;
+        border-radius: 10px;
+        padding: 2px 10px;
+        font-size: 9px;
         font-weight: 600;
-        border: 1px solid rgba(74, 158, 255, 0.06);
+        border: 1px solid rgba(74, 158, 255, 0.05);
     }
     .temporada-badge {
         display: inline-block;
-        background: rgba(255, 183, 77, 0.08);
+        background: rgba(255, 183, 77, 0.07);
         color: #ffb74d;
-        border-radius: 14px;
-        padding: 3px 12px;
-        font-size: 10px;
+        border-radius: 10px;
+        padding: 2px 10px;
+        font-size: 9px;
         font-weight: 600;
-        border: 1px solid rgba(255, 183, 77, 0.06);
+        border: 1px solid rgba(255, 183, 77, 0.05);
     }
 
+    /* ========== TARJETA DE RESULTADOS ========== */
     .result-card-moderno {
         background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(8px);
         border: 1px solid rgba(255, 255, 255, 0.03);
-        border-radius: 24px;
-        padding: 24px 26px;
-        margin: 16px 0;
-        transition: all 0.4s ease;
+        border-radius: 16px;
+        padding: 14px 16px;
+        margin: 8px 0;
+        transition: all 0.3s ease;
     }
     .result-card-moderno:hover {
         background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(255, 145, 0, 0.08);
-        transform: translateY(-4px);
+        border-color: rgba(255, 145, 0, 0.06);
     }
     .result-card-moderno .header-result {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
     }
     .result-card-moderno .header-result .titulo-pagina {
         font-weight: 600;
         color: #fff;
-        font-size: 16px;
+        font-size: 14px;
     }
     .result-card-moderno .pagina-badge {
         background: rgba(255, 255, 255, 0.04);
-        border-radius: 20px;
-        padding: 4px 14px;
-        font-size: 9px;
-        color: rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        padding: 2px 10px;
+        font-size: 8px;
+        color: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.02);
     }
 
+    /* ========== DESGLOSE ========== */
     .desglose-box {
-        background: rgba(0, 0, 0, 0.25);
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        border-radius: 20px;
-        padding: 20px 24px;
-        margin: 12px 0 8px;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        border-radius: 14px;
+        padding: 12px 16px;
+        margin: 6px 0 4px;
     }
     .desglose-box .fila {
         display: flex;
         justify-content: space-between;
-        padding: 6px 0;
+        padding: 3px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.5);
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
     }
     .desglose-box .fila:last-child { border-bottom: none; }
     .desglose-box .fila .label {
-        color: rgba(255, 255, 255, 0.35);
-        font-size: 12px;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 11px;
     }
     .desglose-box .fila .valor {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255, 0.6);
         font-weight: 500;
-        font-size: 13px;
-    }
-    .desglose-box .fila .badge-precio {
-        background: rgba(255, 145, 0, 0.08);
-        color: #ff9100;
-        font-size: 8px;
-        padding: 2px 10px;
-        border-radius: 12px;
-        margin-left: 6px;
-        font-weight: 600;
+        font-size: 12px;
     }
     .desglose-box .fila.total {
-        border-top: 2px solid rgba(255, 145, 0, 0.12);
-        padding-top: 12px;
-        margin-top: 6px;
+        border-top: 2px solid rgba(255, 145, 0, 0.1);
+        padding-top: 8px;
+        margin-top: 4px;
     }
     .desglose-box .fila.total .label {
         color: #ffb74d;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 13px;
     }
     .desglose-box .fila.total .valor {
         color: #ff9100;
         font-weight: 700;
-        font-size: 22px;
+        font-size: 18px;
     }
     .desglose-box .formula {
         text-align: right;
-        font-size: 9px;
-        color: rgba(255, 255, 255, 0.06);
-        margin-top: 6px;
+        font-size: 8px;
+        color: rgba(255, 255, 255, 0.04);
+        margin-top: 4px;
     }
 
+    /* ========== DIVISORES ========== */
     .divider-lotus {
         display: flex;
         align-items: center;
-        gap: 20px;
-        margin: 28px 0 22px;
-        opacity: 0.12;
+        gap: 12px;
+        margin: 12px 0 10px;
+        opacity: 0.08;
     }
     .divider-lotus::before,
     .divider-lotus::after {
         content: '';
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 145, 0, 0.2), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255, 145, 0, 0.15), transparent);
     }
-    .divider-lotus .icono-divider { color: #ff9100; font-size: 10px; }
+    .divider-lotus .icono-divider { color: #ff9100; font-size: 8px; }
 
+    /* ========== TÍTULOS ========== */
     h1 {
         color: #fff !important;
         font-weight: 700 !important;
-        font-size: 1.8rem !important;
+        font-size: 1.4rem !important;
         background: linear-gradient(135deg, #ff9100, #ffb74d);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -308,91 +331,98 @@ st.markdown("""
         margin-bottom: 0 !important;
     }
     .sub-header {
-        color: rgba(255, 255, 255, 0.12);
-        font-size: 13px;
+        color: rgba(255, 255, 255, 0.08);
+        font-size: 10px;
         font-weight: 400;
         margin-top: -2px;
-        margin-bottom: 22px;
-        letter-spacing: 1px;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
     }
     h3 {
         color: #fff !important;
         font-weight: 600 !important;
-        font-size: 1.2rem !important;
-        margin-bottom: 14px !important;
+        font-size: 1rem !important;
+        margin-bottom: 8px !important;
     }
 
+    /* ========== MÉTRICAS ========== */
     .stMetric {
         background: rgba(255, 255, 255, 0.02);
-        border-radius: 16px;
-        padding: 12px 8px;
+        border-radius: 12px;
+        padding: 6px 4px;
         border: 1px solid rgba(255, 255, 255, 0.02);
-        transition: all 0.3s ease;
-    }
-    .stMetric:hover {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(255, 145, 0, 0.05);
-        transform: translateY(-2px);
     }
     .stMetric label {
-        color: rgba(255, 255, 255, 0.2) !important;
-        font-size: 10px !important;
+        color: rgba(255, 255, 255, 0.15) !important;
+        font-size: 9px !important;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
     }
     .stMetric .stMetricValue {
         color: #fff !important;
         font-weight: 600 !important;
-        font-size: 22px !important;
+        font-size: 18px !important;
     }
 
+    /* ========== FOOTER ========== */
     .footer-2026 {
-        margin-top: 32px;
-        padding-top: 20px;
+        margin-top: 16px;
+        padding-top: 12px;
         border-top: 1px solid rgba(255, 255, 255, 0.02);
         text-align: center;
-        font-size: 9px;
-        color: rgba(255, 255, 255, 0.04);
-        letter-spacing: 1.5px;
+        font-size: 8px;
+        color: rgba(255, 255, 255, 0.03);
+        letter-spacing: 1px;
     }
 
+    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
-        .main { padding: 0.5rem 0.8rem 2rem; }
-        .form-moderno { padding: 18px 14px; border-radius: 24px; }
-        .result-card-moderno { padding: 16px 16px; border-radius: 20px; }
-        .destino-btn { font-size: 11px !important; padding: 6px 12px !important; }
-        .desglose-box { padding: 14px 16px; }
-        .desglose-box .fila.total .valor { font-size: 18px; }
-        h1 { font-size: 1.4rem !important; }
-        .btn-cotizar { font-size: 15px !important; padding: 16px 20px !important; border-radius: 20px !important; }
+        .main { padding: 0.4rem 0.5rem 1.5rem !important; }
+        .form-moderno { padding: 10px 10px; border-radius: 16px; }
+        .result-card-moderno { padding: 10px 12px; border-radius: 14px; }
+        .destino-btn { font-size: 10px !important; padding: 4px 10px !important; }
+        .desglose-box { padding: 10px 12px; }
+        .desglose-box .fila.total .valor { font-size: 16px; }
+        h1 { font-size: 1.2rem !important; }
+        .btn-cotizar { font-size: 14px !important; padding: 10px 16px !important; }
+        .stMetric .stMetricValue { font-size: 16px !important; }
+        .stMetric { padding: 4px 2px; }
+    }
+    
+    @media (max-width: 400px) {
+        .destino-btn { font-size: 9px !important; padding: 3px 8px !important; }
+        .form-moderno { padding: 8px 8px; }
+        .badge-moderno { font-size: 8px; padding: 1px 8px; }
+        h1 { font-size: 1rem !important; }
+        .sub-header { font-size: 9px; }
     }
 </style>
 """, unsafe_allow_html=True)
 
 # ======================================================
-# HEADER
+# HEADER COMPACTO
 # ======================================================
 
-col1, col2 = st.columns([1, 6])
+col1, col2 = st.columns([1, 5])
 with col1:
-    st.image("https://bwrathanyel.github.io/redireccion-whatsapp/logolotus.png", width=60)
+    st.image("https://bwrathanyel.github.io/redireccion-whatsapp/logolotus.png", width=40)
 with col2:
     st.markdown("<h1>✈️ Cotizador BT Travel</h1>", unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">✨ Dashboard de tarifas · Destino y Eventos Lotus 360 🌴</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">✨ Tarifas al instante · Lotus 360</p>', unsafe_allow_html=True)
 
 # ======================================================
-# SLIDER DE DESTINOS
+# SLIDER DE DESTINOS (MÁS COMPACTO)
 # ======================================================
 
 destinos = [
-    {"nombre": "Margarita", "emoji": "🏖️", "badge": "Popular"},
+    {"nombre": "Margarita", "emoji": "🏖️", "badge": "Pop"},
     {"nombre": "Morrocoy", "emoji": "🐠", "badge": "Playas"},
-    {"nombre": "Los Roques", "emoji": "🏝️", "badge": "Exclusivo"},
-    {"nombre": "Mérida", "emoji": "🚡", "badge": "Montaña"},
-    {"nombre": "Canaima", "emoji": "💧", "badge": "Aventura"},
+    {"nombre": "Los Roques", "emoji": "🏝️", "badge": "Excl"},
+    {"nombre": "Mérida", "emoji": "🚡", "badge": "Mont"},
+    {"nombre": "Canaima", "emoji": "💧", "badge": "Avent"},
     {"nombre": "Colonia Tovar", "emoji": "🏘️", "badge": "Pueblo"},
     {"nombre": "Costa Caribe", "emoji": "🌊", "badge": "Hotel"},
-    {"nombre": "Los Llanos", "emoji": "🌿", "badge": "Naturaleza"},
+    {"nombre": "Los Llanos", "emoji": "🌿", "badge": "Natur"},
 ]
 
 if "destino_seleccionado" not in st.session_state:
@@ -411,7 +441,7 @@ for i, d in enumerate(destinos):
             st.session_state.destino_seleccionado = d["nombre"]
             st.rerun()
         st.markdown(
-            f'<div style="text-align:center;margin-top:-4px;font-size:7px;color:rgba(255,255,255,0.08);">#{d["badge"]}</div>',
+            f'<div style="text-align:center;margin-top:-3px;font-size:6px;color:rgba(255,255,255,0.06);">#{d["badge"]}</div>',
             unsafe_allow_html=True
         )
 st.markdown('</div>', unsafe_allow_html=True)
@@ -421,14 +451,14 @@ st.markdown('</div>', unsafe_allow_html=True)
 # ======================================================
 
 sugerencias = {
-    "Margarita": {"noches": 4, "adultos": 2, "ninos": 0, "texto": "🌴 4 noches · 2 adultos · Playas y duty free"},
-    "Morrocoy": {"noches": 2, "adultos": 2, "ninos": 2, "texto": "🐠 2 noches · 2 adultos + 2 niños · Ideal para familias"},
-    "Los Roques": {"noches": 3, "adultos": 2, "ninos": 0, "texto": "🏝️ 3 noches · 2 adultos · Escapada romántica"},
-    "Mérida": {"noches": 3, "adultos": 2, "ninos": 1, "texto": "🚡 3 noches · 2 adultos + 1 niño · Aventura en los Andes"},
-    "Canaima": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "💧 2 noches · 2 adultos · Expedición al Salto Ángel"},
-    "Colonia Tovar": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "🏘️ 2 noches · 2 adultos · Clima primaveral y fresas"},
-    "Costa Caribe": {"noches": 3, "adultos": 2, "ninos": 2, "texto": "🌊 3 noches · 2 adultos + 2 niños · Todo incluido"},
-    "Los Llanos": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "🌿 2 noches · 2 adultos · Naturaleza y fauna"},
+    "Margarita": {"noches": 4, "adultos": 2, "ninos": 0, "texto": "🌴 4 noches · 2 adultos · Playas"},
+    "Morrocoy": {"noches": 2, "adultos": 2, "ninos": 2, "texto": "🐠 2 noches · 2+2 niños · Familias"},
+    "Los Roques": {"noches": 3, "adultos": 2, "ninos": 0, "texto": "🏝️ 3 noches · 2 adultos · Romántico"},
+    "Mérida": {"noches": 3, "adultos": 2, "ninos": 1, "texto": "🚡 3 noches · 2+1 · Montaña"},
+    "Canaima": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "💧 2 noches · 2 adultos · Aventura"},
+    "Colonia Tovar": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "🏘️ 2 noches · 2 adultos · Fresas"},
+    "Costa Caribe": {"noches": 3, "adultos": 2, "ninos": 2, "texto": "🌊 3 noches · 2+2 · Todo Incluido"},
+    "Los Llanos": {"noches": 2, "adultos": 2, "ninos": 0, "texto": "🌿 2 noches · 2 adultos · Naturaleza"},
 }
 
 sug = sugerencias.get(st.session_state.destino_seleccionado, {"noches": 3, "adultos": 2, "ninos": 0, "texto": "✨ Explora este destino"})
@@ -436,23 +466,22 @@ sug = sugerencias.get(st.session_state.destino_seleccionado, {"noches": 3, "adul
 st.markdown(f"""
 <div class="sugerencia-box">
     <div>
-        <span class="label">💡 Sugerencia para {st.session_state.destino_seleccionado}</span>
-        <div class="texto">{sug['texto']}</div>
+        <span class="label">💡 Sugerencia</span>
+        <span class="texto">{sug['texto']}</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ======================================================
-# FORMULARIO
+# FORMULARIO COMPACTO
 # ======================================================
 
 with st.container():
     st.markdown('<div class="form-moderno">', unsafe_allow_html=True)
-    st.markdown("### 📝 Datos del viaje")
-
+    
     with st.form(key="formulario_cotizacion"):
         col1, col2 = st.columns(2)
-
+        
         with col1:
             hoteles_margarita = [
                 "🏨 Hotel Costa Caribe",
@@ -461,83 +490,82 @@ with st.container():
                 "🏨 Margarita Village",
                 "🏨 Hotel Sunsol",
                 "🏨 Hotel Hesperia Isla de Margarita",
-                "✏️ Otro (escribir nombre)"
+                "✏️ Otro"
             ]
             
             if st.session_state.destino_seleccionado == "Margarita":
-                st.markdown('<p style="color:rgba(255,255,255,0.3);font-size:11px;font-weight:500;margin-bottom:2px;">🏨 Selecciona el hotel</p>', unsafe_allow_html=True)
+                st.markdown('<p style="color:rgba(255,255,255,0.25);font-size:10px;font-weight:500;margin-bottom:2px;">🏨 Hotel</p>', unsafe_allow_html=True)
                 hotel_seleccionado = st.selectbox(
-                    "🏨 Hotel en Margarita",
+                    "Hotel",
                     options=hoteles_margarita,
                     index=0,
                     label_visibility="collapsed"
                 )
                 
-                if hotel_seleccionado == "✏️ Otro (escribir nombre)":
+                if hotel_seleccionado == "✏️ Otro":
                     hotel_input = st.text_input(
-                        "✏️ Escribe el nombre del hotel",
-                        placeholder="Ej: Hotel Miramar, Posada La Mar...",
+                        "Otro hotel",
+                        placeholder="Escribe el nombre",
                         label_visibility="collapsed"
                     )
                     hotel_final = hotel_input if hotel_input else ""
                 else:
                     hotel_final = hotel_seleccionado.replace("🏨 ", "")
-                
-                if hotel_final:
-                    st.caption(f"📍 Hotel seleccionado: **{hotel_final}**")
-                else:
-                    st.caption("📍 Selecciona un hotel")
             else:
                 hotel_final = st.text_input(
-                    "📍 Lugar de Hospedaje",
+                    "📍 Hospedaje",
                     value=st.session_state.destino_seleccionado,
-                    placeholder="Ej: Margarita, Costa Caribe..."
+                    placeholder="Hotel o destino",
+                    label_visibility="collapsed"
                 )
             
             fecha_entrada = st.date_input(
-                "📅 Fecha de llegada",
-                value=datetime.now() + timedelta(days=7)
+                "📅 Llegada",
+                value=datetime.now() + timedelta(days=7),
+                label_visibility="collapsed"
             )
+        
+        with col2:
             noches = st.number_input(
-                "🌙 Noches de estancia",
+                "🌙 Noches",
                 min_value=1,
                 max_value=30,
-                value=sug['noches']
+                value=sug['noches'],
+                label_visibility="collapsed"
             )
-
-        with col2:
             adultos = st.number_input(
                 "👤 Adultos",
                 min_value=1,
                 max_value=10,
-                value=sug['adultos']
+                value=sug['adultos'],
+                label_visibility="collapsed"
             )
             ninos = st.number_input(
                 "🧒 Niños",
                 min_value=0,
                 max_value=8,
-                value=sug['ninos']
+                value=sug['ninos'],
+                label_visibility="collapsed"
             )
             regimen = st.selectbox(
-                "🍽️ Régimen alimenticio",
-                options=["Todos incluidos", "Media pensión", "Pensión completa", "Solo alojamiento"]
+                "🍽️ Régimen",
+                options=["Todos incluidos", "Media pensión", "Pensión completa", "Solo alojamiento"],
+                label_visibility="collapsed"
             )
-
-        st.caption("🎤 O usa el comando de voz")
+        
+        # Comando de voz compacto
         comando_voz = st.text_input(
-            "🎙️ Comando de voz",
-            placeholder='Ej: "Quiero Margarita, 4 adultos, 2 niños, 3 noches"',
+            "🎤 Voz",
+            placeholder='Ej: "Margarita, 4 adultos, 2 niños, 3 noches"',
             label_visibility="collapsed"
         )
-
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            buscar = st.form_submit_button(
-                "💰 Cotizar Presupuesto",
-                type="primary",
-                use_container_width=True
-            )
-
+        
+        buscar = st.form_submit_button(
+            "💰 Cotizar Presupuesto",
+            type="primary",
+            use_container_width=True
+        )
+    
     st.markdown('</div>', unsafe_allow_html=True)
 
 # ======================================================
@@ -581,9 +609,9 @@ if buscar:
         st.info(f"🎤 Procesado: **{destino_final}**, {adultos} adultos, {ninos} niños, {noches} noches")
 
     if not destino_final:
-        st.warning("⚠️ Selecciona o escribe un lugar de hospedaje")
+        st.warning("⚠️ Selecciona o escribe un hospedaje")
     else:
-        with st.spinner("🔍 Buscando tarifas..."):
+        with st.spinner("🔍 Buscando..."):
             try:
                 conn = sqlite3.connect("pdf_busqueda.db")
                 cursor = conn.cursor()
@@ -619,7 +647,6 @@ if buscar:
                 conn.close()
                 
                 if resultados:
-                    # FILTRAR: solo mostrar ofertas con al menos un precio
                     resultados_validos = []
                     for row in resultados:
                         sgl, dbl, tpl, cdp, qpl = row[5], row[6], row[7], row[8], row[9]
@@ -627,22 +654,23 @@ if buscar:
                             resultados_validos.append(row)
                     
                     if not resultados_validos:
-                        st.warning("😕 Se encontraron hoteles pero no hay tarifas disponibles para los datos ingresados.")
-                        st.info("💡 Intenta con otro hotel o ajusta las fechas.")
+                        st.warning("😕 Sin tarifas disponibles para estos datos")
+                        st.info("💡 Prueba con otro hotel o ajusta las fechas")
                     else:
-                        st.markdown(f'<h3>✅ {len(resultados_validos)} ofertas encontradas</h3>', unsafe_allow_html=True)
+                        st.markdown(f'<h3>✅ {len(resultados_validos)} ofertas</h3>', unsafe_allow_html=True)
                         
+                        # Badges compactos
                         col_b1, col_b2, col_b3, col_b4, col_b5 = st.columns(5)
                         with col_b1:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-hotel"></i> {destino_final}</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-hotel"></i>{destino_final[:12]}</span>', unsafe_allow_html=True)
                         with col_b2:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-user"></i> {adultos} adultos</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-user"></i>{adultos}</span>', unsafe_allow_html=True)
                         with col_b3:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-child"></i> {ninos} niños</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-child"></i>{ninos}</span>', unsafe_allow_html=True)
                         with col_b4:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-moon"></i> {noches} noches</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-moon"></i>{noches}</span>', unsafe_allow_html=True)
                         with col_b5:
-                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-utensils"></i> {regimen}</span>', unsafe_allow_html=True)
+                            st.markdown(f'<span class="badge-moderno"><i class="fas fa-utensils"></i>{"".join(regimen[:2])}</span>', unsafe_allow_html=True)
                         
                         for row in resultados_validos:
                             hotel, pagina, regimen_bd, vigencia_ini, vigencia_fin, sgl, dbl, tpl, cdp, qpl, chd, inf, promociones_json, condiciones_json = row
@@ -665,7 +693,7 @@ if buscar:
                                 precio_mostrado = f"${precio_base:.2f} USD"
                                 subtotal_texto = f"${costo_por_noche:.2f} USD"
                             else:
-                                total_texto = "Calcular manualmente"
+                                total_texto = "N/A"
                                 precio_mostrado = "N/A"
                                 subtotal_texto = "N/A"
                             
@@ -674,17 +702,20 @@ if buscar:
                                 with col_h1:
                                     st.markdown(f"**🏨 {hotel}**")
                                 with col_h2:
-                                    st.markdown(f'<span class="pagina-badge">📄 Página {pagina}</span>', unsafe_allow_html=True)
+                                    st.markdown(f'<span class="pagina-badge">📄 {pagina}</span>', unsafe_allow_html=True)
                                 
-                                st.markdown(f"""
-                                <div style="display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px;">
-                                    <span class="vigencia-badge">📅 {vigencia_ini or 'N/A'} - {vigencia_fin or 'N/A'}</span>
-                                    <span class="temporada-badge">🍽️ {regimen_bd or 'N/A'}</span>
-                                    {"".join([f'<span class="promocion-badge">🎁 {p}</span>' for p in promociones])}
-                                    {"".join([f'<span class="temporada-badge">📌 {c}</span>' for c in condiciones])}
-                                </div>
-                                """, unsafe_allow_html=True)
+                                # Badges de info compactos
+                                badge_html = ""
+                                if vigencia_ini:
+                                    badge_html += f'<span class="vigencia-badge">📅 {vigencia_ini[:5]}→{vigencia_fin[:5] if vigencia_fin else ""}</span>'
+                                if regimen_bd:
+                                    badge_html += f'<span class="temporada-badge">🍽️ {regimen_bd[:8]}</span>'
+                                for p in promociones[:1]:
+                                    badge_html += f'<span class="promocion-badge">🎁 {p[:12]}</span>'
+                                if badge_html:
+                                    st.markdown(f'<div style="display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 6px;">{badge_html}</div>', unsafe_allow_html=True)
                                 
+                                # Precios por habitación
                                 precios_habitacion = {}
                                 if sgl: precios_habitacion["SGL"] = sgl
                                 if dbl: precios_habitacion["DBL"] = dbl
@@ -693,49 +724,45 @@ if buscar:
                                 if qpl: precios_habitacion["QPL"] = qpl
                                 
                                 if precios_habitacion:
-                                    habitacion_text = " | ".join([f"{hab}: ${p:.2f}" for hab, p in precios_habitacion.items()])
-                                    st.caption(f"🏷️ Precios por noche: {habitacion_text}")
+                                    habitacion_text = " | ".join([f"{hab}: ${p:.0f}" for hab, p in precios_habitacion.items()])
+                                    st.caption(f"🏷️ {habitacion_text}")
                                 
                                 if tiene_ninos_gratis and ninos > 0:
-                                    st.markdown(f'<span class="promocion-badge">🎁 ¡Niños gratis!</span>', unsafe_allow_html=True)
+                                    st.markdown(f'<span class="promocion-badge" style="font-size:10px;">🎁 ¡Niños gratis!</span>', unsafe_allow_html=True)
                                 
                                 st.markdown(f"""
                                 <div class="desglose-box">
                                     <div class="fila">
-                                        <span class="label">💰 Precio por persona (por noche)</span>
+                                        <span class="label">💰 Por persona/noche</span>
                                         <span class="valor">{precio_mostrado}</span>
                                     </div>
                                     <div class="fila">
-                                        <span class="label">👥 Personas totales</span>
-                                        <span class="valor">{total_personas} <span style="color:rgba(255,255,255,0.3);font-size:11px;">({adultos} adultos + {ninos} niños)</span></span>
+                                        <span class="label">👥 Total personas</span>
+                                        <span class="valor">{total_personas} ({adultos}+{ninos})</span>
                                     </div>
-                                    <div class="fila">
-                                        <span class="label">🌙 Noches de estancia</span>
+                                    <div class="fila" style="border-bottom:1px solid rgba(255,255,255,0.04);">
+                                        <span class="label">🌙 Noches</span>
                                         <span class="valor">{noches}</span>
                                     </div>
-                                    <div class="fila" style="border-bottom:1px solid rgba(255,255,255,0.06);">
-                                        <span class="label">🍽️ Régimen</span>
-                                        <span class="valor">{regimen}</span>
-                                    </div>
-                                    <div class="fila" style="color:rgba(255,255,255,0.5);font-size:12px;">
-                                        <span class="label">Subtotal (por noche)</span>
+                                    <div class="fila" style="color:rgba(255,255,255,0.4);font-size:11px;">
+                                        <span class="label">Subtotal/noche</span>
                                         <span class="valor">{subtotal_texto}</span>
                                     </div>
                                     <div class="fila total">
-                                        <span class="label">💰 Total del viaje</span>
+                                        <span class="label">💰 Total</span>
                                         <span class="valor">{total_texto}</span>
                                     </div>
-                                    <div class="formula">Precio por persona × {total_personas} personas × {noches} noches</div>
+                                    <div class="formula">{precio_mostrado} × {total_personas} × {noches}</div>
                                 </div>
                                 """, unsafe_allow_html=True)
                                 
                                 st.divider()
                         
                         st.markdown("---")
-                        st.markdown("### 📊 Resumen de la cotización")
+                        st.markdown("### 📊 Resumen")
                         col1, col2, col3, col4 = st.columns(4)
                         with col1:
-                            st.metric("📍 Hospedaje", destino_final.title())
+                            st.metric("📍 Hotel", destino_final.title()[:15])
                         with col2:
                             st.metric("🌙 Noches", noches)
                         with col3:
@@ -743,14 +770,14 @@ if buscar:
                         with col4:
                             st.metric("🧒 Niños", ninos)
                         
-                        st.info("💡 Revisa el PDF original para confirmar tarifas exactas.")
+                        st.info("💡 Confirma tarifas con el PDF original", icon="ℹ️")
                 else:
-                    st.warning(f"😕 No encontré información para '{destino_final}'")
-                    st.info("💡 Prueba con: 'hotel', 'precio', 'promoción' o el nombre de otro destino")
+                    st.warning(f"😕 No encontré '{destino_final}'")
+                    st.info("💡 Prueba con: 'hotel', 'precio' u otro destino")
                     
             except Exception as e:
-                st.error(f"❌ Error al buscar: {e}")
-                st.info("💡 Asegúrate de haber ejecutado el extractor primero (python extractor.py)")
+                st.error(f"❌ Error: {e}")
+                st.info("💡 Ejecuta 'python extractor.py' primero")
 
 # ======================================================
 # FOOTER
@@ -758,7 +785,7 @@ if buscar:
 
 st.markdown("""
 <div class="footer-2026">
-    Información extraída del PDF de BT Travel · Destino y Eventos Lotus 360
+    ✦ BT Travel · Lotus 360 ✦
     <br>
     © 2026 · Carabobo, Venezuela
 </div>
